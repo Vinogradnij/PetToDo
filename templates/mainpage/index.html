@@ -2,4 +2,14 @@
 {% block content %}
     <h1>Список задач</h1>
     Ниже будут выводиться задачи
+    <ul>
+    {% for t in tasks %}
+        <li>
+            <h2>{{ t.name }}</h2>
+            <br>
+            {{ t.text }}
+            <hr>
+        </li>
+    {% endfor %}
+    </ul>
 {% endblock %}
