@@ -1,6 +1,6 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from mainpage.models import Todo
-
 
 # Create your views here.
 menu = [{'title': 'Главная', 'url_name': 'home'},
@@ -16,3 +16,7 @@ def index(request):
         'menu': menu
     }
     return render(request, 'mainpage/index.html', context=context)
+
+
+def show_category(request, category_id):
+    return HttpResponse('Категория')
