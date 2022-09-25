@@ -1,7 +1,8 @@
 from django.db import models
 
-
 # Create your models here.
+from django.urls import reverse
+
 
 class Todo(models.Model):
     name = models.CharField(max_length=30)
@@ -12,9 +13,15 @@ class Todo(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('category', kwargs={'category_id': self.pk})
+
 
 class Category(models.Model):
     name = models.CharField(max_length=30, db_index=True)
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={'category_id': self.pk})
